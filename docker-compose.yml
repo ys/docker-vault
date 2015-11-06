@@ -1,4 +1,4 @@
-vault:
+web:
   build: .
   cap_add:
     - IPC_LOCK
