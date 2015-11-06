@@ -11,4 +11,7 @@ ENV VAULT_ADDR "http://127.0.0.1:8200"
 RUN mkdir /certs
 
 COPY . /app
-CMD ["/app/vault"]
+WORKDIR /app
+ENV HOME /app
+ENV STACK cedar-14
+ENV PATH /app:$PATH
