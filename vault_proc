@@ -1,9 +1,11 @@
 #!/usr/bin/env bash
 echo "SAVING CERTS TO FILE"
-echo $TLS_CERT_FILE > /app/user/cert.crt
-echo $TLS_KEY_FILE > /app/user/key.key
+sed -i "s/{{PORT}}/$PORT/g" /app/user/config.hcl
+cat /app/user/config.hcl
+echo "${TLS_CERT_FILE}" > /app/user/cert.crt
+echo "${TLS_KEY_FILE}" > /app/user/key.key
 sed -i 's/\\n/\n/g' /app/user/cert.crt
 sed -i 's/\\n/\n/g' /app/user/key.key
-more /app/user/cert.crt
-more /app/user/key.key
+cat /app/user/cert.crt
+cat /app/user/key.key
 /app/user/vault server --config=/app/user/config.hcl
