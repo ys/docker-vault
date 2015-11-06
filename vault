@@ -1,0 +1,7 @@
+#!/usr/bin/env bash
+echo "SAVING CERTS TO FILE"
+echo $TLS_CERT_FILE > /certs/cert.crt
+echo $TLS_KEY_FILE > /certs/key.key
+sed -i 's/\\n/\n/g' /certs/cert.crt
+sed -i 's/\\n/\n/g' /certs/key.key
+/bin/vault server --config=/app/config.hcl

@@ -1,0 +1,7 @@
+vault:
+  build: .
+  cap_add:
+    - IPC_LOCK
+  env_file: .env
+  volumes:
+    - .:/app
