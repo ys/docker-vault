@@ -9,7 +9,7 @@ EXPOSE 8200
 ENV VAULT_ADDR "http://127.0.0.1:8200"
 
 RUN mkdir /certs
-RUN mkdir /app/user
+RUN mkdir -p /app/user
 
 COPY . /app/user
 WORKDIR /app/user
